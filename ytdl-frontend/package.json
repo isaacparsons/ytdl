@@ -19,6 +19,9 @@
   },
   "dependencies": {
     "react": "16.3.1",
-    "react-native": "~0.55.2"
+    "react-native": "~0.55.2",
+    "react-native-file-transfer": "0.0.3",
+    "react-native-ftp": "^1.0.0",
+    "react-navigation": "^2.3.1"
   }
 }
