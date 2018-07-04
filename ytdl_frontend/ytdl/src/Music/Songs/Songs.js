@@ -1,37 +1,52 @@
 import React, {Component} from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Text, FlatList, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
-import {musicDir} from './Filesystem'
+import SongItem from './SongItem'
 
-//import DownloadActions from './src/Redux/actions/DownloadActions'
+import {retrieveSongs} from '../../Redux/Actions/SongActions'
 
 class Songs extends Component {
 
   componentDidMount(){
-    musicDir();
+    var songs = this.props.getSongs();
+    console.log(this.props.stuff)
   }
 
   constructor(props) {
     super(props);
   }
 
-  render() {
-    return (
-      <View>
+  songItem = ({ item }) => (
+    <SongItem songTitle = {item}/>
+  )
 
-      </View>
-    );
+  render() {
+    if(this.props.stuff.loadingSongs == false){
+      return (
+        <FlatList
+            data = {this.props.stuff.songs}
+            renderItem={this.songItem}/>
+      )} else {
+      return (
+        <View>
+          <ActivityIndicator size="large" color="#0000ff" />
+          {/* <FlatList
+            data = {[1,2,3]}
+            renderItem={this.songItem}/> */}
+        </View>
+      );
+    }
   }
 }
 function mapStateToProps (state) {
   return {
-    stuff: state
+    stuff: state.SongReducers
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return({
-    doThings: () => {dispatch(DownloadActions())}
+    getSongs: () => {dispatch(retrieveSongs())}
   })
 }
 

@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux'
 
-import DownloadReducer from './DownloadReducers'
+import SongReducers from './SongReducers'
 
 const rootReducer = combineReducers({
-    DownloadReducer
+    SongReducers
 })
 
 export default rootReducer
