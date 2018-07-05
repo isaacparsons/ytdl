@@ -30,9 +30,6 @@ class Songs extends Component {
       return (
         <View>
           <ActivityIndicator size="large" color="#0000ff" />
-          {/* <FlatList
-            data = {[1,2,3]}
-            renderItem={this.songItem}/> */}
         </View>
       );
     }

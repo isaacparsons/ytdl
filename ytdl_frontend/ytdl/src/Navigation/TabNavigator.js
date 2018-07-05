@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from 'react-navigation'
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
 import MusicNav from '../Navigation/MusicNavigator'
 import Downloads from '../Download/index'
 
@@ -9,21 +9,27 @@ export default createBottomTabNavigator(
     Home: {screen: MusicNav},
     Downloads: {screen: Downloads}
     },
-    {initialRouteName: 'Home'},
-    {
-      navigationOptions: ({ navigation }) => ({
-          tabBarIcon: () => {
-          const { routeName } = navigation.state;
-
-
-          
-        },
-      }),
-      tabBarOptions: {
-        activeTintColor: 'tomato',
+    {initialRouteName: 'Home',
+     tabBarOptions: {
+        activeTintColor: 'blue',
         inactiveTintColor: 'gray',
+        showIcon: true,
       },
-    }
+      navigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        let imgName;
+        if(routeName === 'Home'){
+          imgName = require('../resources/song.png');
+        } else if(routeName == 'Downloads'){
+          imgName = require('../resources/download_black.png')
+        }
+
+        return <Image style = {{height: 20, width: 20}} source = {imgName}/>;
+      },
+    }),
+    },
+
 );
 
 const styles = StyleSheet.create({
