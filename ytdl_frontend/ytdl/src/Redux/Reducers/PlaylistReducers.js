@@ -15,7 +15,12 @@ export default function PlaylistReducer(state = initialState, action){
             return {
                 ...state,
                 playlist: [...state.playlist, {title: action.title, songs:[]}],
-
+                currentPlaylist: action.title
+            }
+        case constants.SELECT_PLAYLIST:
+            return {
+                ...state,
+                currentPlaylist: action.title
             }
         default:
             return state

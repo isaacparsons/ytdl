@@ -1,19 +1,37 @@
 import React, {Component} from 'react'
-import {View, Text, Image, StyleSheet} from 'react-native'
+import {View, Text, Image, StyleSheet, TouchableHighlight} from 'react-native'
+import {connect} from 'react-redux'
+import PlaylistActions from '../../Redux/Actions/PlaylistActions'
 
-export default class PlaylistItem extends Component {
+class PlaylistItem extends Component {
     constructor(props){
         super(props)
     }
     render(){
+        const navigation = this.props.navigation;
         return(
             <View style = {styles.card}>
-                <Image source = {require('../../resources/playlist.png')}/>
-                <Text>{this.props.title}</Text>
+                <TouchableHighlight onPress = {() => {selectPlaylist(this.props.title); navigation.navigate('Playlist')}}>
+                    <Image source = {require('../../resources/playlist.png')}/>
+                    <Text>{this.props.title}</Text>
+                </TouchableHighlight>
             </View>
         );
     }
 }
+
+function mapStateToProps (state) {
+    return {
+    }
+  }
+  
+  function mapDispatchToProps(dispatch) {
+    return({
+       selectPlaylist: (playlistTitle) => {dispatch(PlaylistActions.selectPlaylist(playlistTitle))}
+    })
+  }
+
+  export default connect(mapStateToProps, mapDispatchToProps)(PlaylistItem)
 
 const styles = StyleSheet.create({
     card: {

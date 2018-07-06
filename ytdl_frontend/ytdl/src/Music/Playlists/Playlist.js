@@ -2,10 +2,12 @@ import React, {Component} from 'react'
 import {View, Text} from 'react-native'
 import {connect} from 'react-redux'
 
+
 class Playlist extends Component {
     render(){
+        if(this.props.state.currentPlaylist)
         return(<View>
-                <Text></Text>
+                <Text>{this.props.state.currentPlaylist}</Text>
                 {/* <FlatList
                     data = {}
                     renderItem={}/> */}
@@ -15,7 +17,7 @@ class Playlist extends Component {
 
 function mapStateToProps (state) {
     return {
-    //   stuff: state.SongReducers
+       state: state.PlaylistReducers
     }
   }
   

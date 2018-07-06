@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { StyleSheet, View, Text, FlatList, ActivityIndicator, Button } from 'react-native'
 import {connect} from 'react-redux'
-import PlaylistReducers from '../../Redux/Reducers/PlaylistReducers'
+
 import PlaylistItem from './PlaylistItem'
 
 
