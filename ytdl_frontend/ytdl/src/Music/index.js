@@ -38,12 +38,6 @@ class Music extends Component {
                 </TouchableOpacity>
 
                 <Button title = {"button"} onPress = {() => {this.props.addPlaylist(this.state.playlistTitle); navigation.navigate('Playlist')}}/>
-                <TouchableOpacity onPress={() => this.setModalVisibility} style = {styles.add}>
-                    <View style = {styles.add}>
-                        <Image source={require('../resources/add_white.png')}/>
-                        <Text style = {styles.addTitle}>Add Song</Text>
-                    </View>
-                </TouchableOpacity>
                 <TouchableOpacity onPress = {() => navigation.navigate('PlaylistList')} style = {styles.image_container}>
                     <Image source={require('../resources/playlist_white.png')}/>
                     <Text style = {styles.image_title}>Playlists</Text>

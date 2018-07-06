@@ -12,16 +12,16 @@ class Playlists extends Component {
       }
 
       playlistItem = ({ item }) => (
-        <PlaylistItem title = {item}/>
+        <PlaylistItem title = {item} navigation = {this.props.navigation}/>
       )
 
     render(){
+        const nav = this.props.navigation;
         return(<View>
                     <Text>PLAYLISTS</Text>
-                    <Button title= {"Add Songs"} onPress = {()=> {}}/>
                     <FlatList 
                         data = {this.props.state.playlist.map(playlistObj => playlistObj.title)}
-                        renderItem = {this.playlistItem}/>
+                        renderItem = {this.playlistItem.bind(this)}/>
                 </View>);
     }
 }

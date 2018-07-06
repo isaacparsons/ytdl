@@ -6,12 +6,6 @@ import SongItem from './SongItem'
 import {retrieveSongs} from '../../Redux/Actions/SongActions'
 
 class Songs extends Component {
-
-  componentDidMount(){
-    var songs = this.props.getSongs();
-    console.log(this.props.stuff)
-  }
-
   constructor(props) {
     super(props);
   }
@@ -21,20 +15,12 @@ class Songs extends Component {
   )
 
   render() {
-    if(this.props.stuff.loadingSongs == false){
-      return (
-        <FlatList
-            data = {this.props.stuff.songs}
-            renderItem={this.songItem}/>
-      )} else {
-      return (
-        <View>
-          <ActivityIndicator size="large" color="#0000ff" />
-        </View>
-      );
-    }
+    return (
+      <FlatList
+          data = {this.props.stuff.songs}
+          renderItem={this.songItem}/>
+    )}
   }
-}
 function mapStateToProps (state) {
   return {
     stuff: state.SongReducers

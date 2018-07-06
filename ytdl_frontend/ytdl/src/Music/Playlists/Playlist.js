@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, Button} from 'react-native'
 import {connect} from 'react-redux'
 
 
@@ -8,6 +8,7 @@ class Playlist extends Component {
         if(this.props.state.currentPlaylist)
         return(<View>
                 <Text>{this.props.state.currentPlaylist}</Text>
+                <Button title= {"Add Songs"} onPress = {()=> {}}/>
                 {/* <FlatList
                     data = {}
                     renderItem={}/> */}
