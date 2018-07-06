@@ -44,7 +44,7 @@ class Music extends Component {
                         <Text style = {styles.addTitle}>Add Song</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style = {styles.image_container}>
+                <TouchableOpacity onPress = {() => navigation.navigate('PlaylistList')} style = {styles.image_container}>
                     <Image source={require('../resources/playlist_white.png')}/>
                     <Text style = {styles.image_title}>Playlists</Text>
                 </TouchableOpacity>
