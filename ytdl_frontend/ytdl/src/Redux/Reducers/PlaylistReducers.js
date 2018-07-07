@@ -1,4 +1,5 @@
 import * as constants from '../Constants/PlaylistConstants'
+import {updatePlaylistSongs} from '../HelperFunctions'
 
 initialState = {
     playlist: [],
@@ -22,6 +23,8 @@ export default function PlaylistReducer(state = initialState, action){
                 ...state,
                 currentPlaylist: action.title
             }
+        case constants.ADD_SONG_TO_PLAYLIST:
+            return Object.assign({}, state, updatePlaylistSongs(state, action.index))
         default:
             return state
     }

@@ -5,14 +5,15 @@ import {connect} from 'react-redux'
 
 class Playlist extends Component {
     render(){
-        if(this.props.state.currentPlaylist)
-        return(<View>
+        const navigation = this.props.navigation;
+        return(
+            <View>
                 <Text>{this.props.state.currentPlaylist}</Text>
-                <Button title= {"Add Songs"} onPress = {()=> {}}/>
+                <Button title= {"Add Songs"} onPress = {()=> {navigation.navigate('AddSongs')}}/>
                 {/* <FlatList
                     data = {}
                     renderItem={}/> */}
-                </View>);
+            </View>);
     }
 }
 

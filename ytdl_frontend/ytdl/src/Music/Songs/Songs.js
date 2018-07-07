@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, FlatList, ActivityIndicator } from 'react-nativ
 import { connect } from 'react-redux'
 import SongItem from './SongItem'
 
-import {retrieveSongs} from '../../Redux/Actions/SongActions'
 
 class Songs extends Component {
   constructor(props) {
@@ -29,7 +28,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps(dispatch) {
   return({
-    getSongs: () => {dispatch(retrieveSongs())}
+    // getSongs: () => {dispatch(retrieveSongs())}
   })
 }
 

@@ -4,6 +4,7 @@ import Songs from '../Music/Songs/Songs'
 import PlaylistList from '../Music/Playlists/PlaylistList'
 import Playlist from '../Music/Playlists/Playlist'
 import PlaylistItem from '../Music/Playlists/PlaylistItem'
+import AddSongs from '../Music/Playlists/AddSongs'
 
 
 const MusicNav = createStackNavigator({
@@ -11,7 +12,8 @@ const MusicNav = createStackNavigator({
     Songs: {screen: Songs},
     PlaylistList: {screen: PlaylistList},
     Playlist: {screen: Playlist},
-    PlaylistItem: {screen: PlaylistItem}
+    PlaylistItem: {screen: PlaylistItem},
+    AddSongs:  {screen: AddSongs}
 }, 
 {initialRouteName: 'Home'});
 
